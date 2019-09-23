@@ -1,4 +1,4 @@
-#Sun Sep 22 23:02:45 EDT 2019
+#Mon Sep 23 01:18:00 EDT 2019
 base.0=/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
