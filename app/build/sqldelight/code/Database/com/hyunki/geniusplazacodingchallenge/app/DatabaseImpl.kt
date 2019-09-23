@@ -32,7 +32,8 @@ private class DatabaseImpl(
     override fun create(driver: SqlDriver) {
       driver.execute(null, """
           |CREATE TABLE Users (
-          |    userId INTEGER NOT NULL UNIQUE PRIMARY KEY,
+          |    _id INTEGER PRIMARY KEY NOT NULL,
+          |    userId INTEGER UNIQUE NOT NULL,
           |    first_name TEXT NOT NULL,
           |    last_name TEXT NOT NULL,
           |    email TEXT,
@@ -59,6 +60,7 @@ private class UserQueriesImpl(
   internal val selectUserById: MutableList<Query<*>> = copyOnWriteList()
 
   override fun <T : Any> selectAllUsers(mapper: (
+    _id: Long,
     userId: Long,
     first_name: String,
     last_name: String,
@@ -68,16 +70,18 @@ private class UserQueriesImpl(
       "SELECT * FROM Users") { cursor ->
     mapper(
       cursor.getLong(0)!!,
-      cursor.getString(1)!!,
+      cursor.getLong(1)!!,
       cursor.getString(2)!!,
-      cursor.getString(3),
-      cursor.getString(4)
+      cursor.getString(3)!!,
+      cursor.getString(4),
+      cursor.getString(5)
     )
   }
 
   override fun selectAllUsers(): Query<Users> = selectAllUsers(Users::Impl)
 
   override fun <T : Any> selectUserById(userId: Long, mapper: (
+    _id: Long,
     userId: Long,
     first_name: String,
     last_name: String,
@@ -86,17 +90,19 @@ private class UserQueriesImpl(
   ) -> T): Query<T> = SelectUserById(userId) { cursor ->
     mapper(
       cursor.getLong(0)!!,
-      cursor.getString(1)!!,
+      cursor.getLong(1)!!,
       cursor.getString(2)!!,
-      cursor.getString(3),
-      cursor.getString(4)
+      cursor.getString(3)!!,
+      cursor.getString(4),
+      cursor.getString(5)
     )
   }
 
   override fun selectUserById(userId: Long): Query<Users> = selectUserById(userId, Users::Impl)
 
   override fun insertOrReplaceUser(
-    userId: Long?,
+    _id: Long?,
+    userId: Long,
     first_name: String,
     last_name: String,
     email: String?,
@@ -104,19 +110,21 @@ private class UserQueriesImpl(
   ) {
     driver.execute(357778509, """
     |INSERT OR REPLACE INTO Users(
+    |    _id,
     |    userId,
     |    first_name,
     |    last_name,
     |    email,
     |    avatar
     |)
-    |VALUES(?1,?2,?3,?4,?5)
-    """.trimMargin(), 5) {
-      bindLong(1, userId)
-      bindString(2, first_name)
-      bindString(3, last_name)
-      bindString(4, email)
-      bindString(5, avatar)
+    |VALUES(?1,?2,?3,?4,?5,?6)
+    """.trimMargin(), 6) {
+      bindLong(1, _id)
+      bindLong(2, userId)
+      bindString(3, first_name)
+      bindString(4, last_name)
+      bindString(5, email)
+      bindString(6, avatar)
     }
     notifyQueries(357778509, {database.userQueries.selectAllUsers +
         database.userQueries.selectUserById})

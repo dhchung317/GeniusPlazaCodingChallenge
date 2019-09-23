@@ -69,6 +69,10 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
             ))
     }
 
+    fun clearDatabase(){
+        databaseRepository.clearDatabase()
+    }
+
     private fun getUsersFromNetwork() {
         val config = PagedList.Config.Builder()
             .setPageSize(6)

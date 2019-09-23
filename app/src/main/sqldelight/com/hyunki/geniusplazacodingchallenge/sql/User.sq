@@ -1,5 +1,6 @@
 CREATE TABLE Users (
-    userId INTEGER NOT NULL UNIQUE PRIMARY KEY,
+    _id INTEGER PRIMARY KEY NOT NULL,
+    userId INTEGER UNIQUE NOT NULL,
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     email TEXT,
@@ -11,13 +12,14 @@ SELECT * FROM Users;
 
 insertOrReplaceUser:
 INSERT OR REPLACE INTO Users(
+    _id,
     userId,
     first_name,
     last_name,
     email,
     avatar
 )
-VALUES(?,?,?,?,?);
+VALUES(?,?,?,?,?,?);
 
 selectUserById:
 SELECT * FROM Users WHERE userId = ?;

@@ -75,6 +75,12 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.clearDatabase()
+    }
+
 //    TODO loading dialog to show state
-    // TODO debug sqldelight to order database entries
+
+
 }
