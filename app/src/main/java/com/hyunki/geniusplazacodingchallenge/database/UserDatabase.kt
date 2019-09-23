@@ -57,6 +57,10 @@ class UserDatabase(context: Context) {
             avatar = userQuery.avatar)
     }
 
+    fun clearDatabase(){
+        database.userQueries.deleteAllUsers()
+    }
+
     companion object Factory {
         @Volatile
         private var userDatabase: UserDatabase? = null
