@@ -51,7 +51,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
         val config = PagedList.Config.Builder()
             .setPageSize(100)
             .setEnablePlaceholders(false)
-            .setPrefetchDistance(6)
+            .setPrefetchDistance(100)
             .build()
 
         val dataSource: Flowable<PagedList<User>> =
@@ -86,9 +86,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
                 onError = {t -> Log.d("network error", t.toString())},
-                onNext = {
-                        pagedList -> liveData.value = pagedList
-                }
+                onNext = { pagedList -> liveData.value = pagedList}
             )
         )
     }

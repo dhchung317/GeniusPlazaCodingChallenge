@@ -8,7 +8,6 @@ import kotlin.String
 
 interface UserQueries : Transacter {
   fun <T : Any> selectAllUsers(mapper: (
-    _id: Long,
     userId: Long,
     first_name: String,
     last_name: String,
@@ -19,7 +18,6 @@ interface UserQueries : Transacter {
   fun selectAllUsers(): Query<Users>
 
   fun <T : Any> selectUserById(userId: Long, mapper: (
-    _id: Long,
     userId: Long,
     first_name: String,
     last_name: String,
@@ -30,7 +28,7 @@ interface UserQueries : Transacter {
   fun selectUserById(userId: Long): Query<Users>
 
   fun insertOrReplaceUser(
-    userId: Long,
+    userId: Long?,
     first_name: String,
     last_name: String,
     email: String?,

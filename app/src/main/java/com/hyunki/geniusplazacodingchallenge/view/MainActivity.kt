@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
 
         dataObserver = getDataObserver()
         adapter.registerAdapterDataObserver(dataObserver)
-        viewModel.getLiveData().observeForever(Observer{
+        viewModel.getLiveData().observe(this,Observer{
                 list -> adapter.submitList(list)
             dataObserver.onItemRangeInserted(0,6)
         })
@@ -74,4 +74,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
             }
         }
     }
+
+//    TODO loading dialog to show state
+    // TODO debug sqldelight to order database entries
 }
