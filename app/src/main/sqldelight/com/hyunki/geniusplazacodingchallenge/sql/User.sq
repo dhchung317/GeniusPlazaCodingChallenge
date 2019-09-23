@@ -1,5 +1,6 @@
 CREATE TABLE Users (
-    userId INTEGER NOT NULL UNIQUE PRIMARY KEY,
+    _id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER NOT NULL UNIQUE,
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     email TEXT,
@@ -7,7 +8,7 @@ CREATE TABLE Users (
 );
 
 selectAllUsers:
-SELECT * FROM Users;
+SELECT * FROM Users ORDER BY _id;
 
 insertOrReplaceUser:
 INSERT OR REPLACE INTO Users(
