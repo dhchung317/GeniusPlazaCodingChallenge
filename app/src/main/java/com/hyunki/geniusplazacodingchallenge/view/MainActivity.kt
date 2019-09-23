@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.core.app.ActivityCompat.startActivityForResult
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,6 +29,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         viewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
 
         initializeList()
+
+        viewModel.getLiveData().observeForever { list ->
+            adapter.submitList(list)
+        }
 
         binding.gotoAddUserButton.setOnClickListener(this)
 

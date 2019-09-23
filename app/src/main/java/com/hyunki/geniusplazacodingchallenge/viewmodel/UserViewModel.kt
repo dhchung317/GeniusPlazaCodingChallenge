@@ -8,6 +8,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.paging.PagedList
 import androidx.paging.RxPagedListBuilder
 import com.hyunki.geniusplazacodingchallenge.database.UserDatabaseRepositoryImpl
+import com.hyunki.geniusplazacodingchallenge.datasource.DatabaseDataSource
+import com.hyunki.geniusplazacodingchallenge.datasource.DatabaseSourceFactory
+import com.hyunki.geniusplazacodingchallenge.datasource.UserDataSource
+import com.hyunki.geniusplazacodingchallenge.datasource.UserDataSourceFactory
 import com.hyunki.geniusplazacodingchallenge.model.PostUser
 import com.hyunki.geniusplazacodingchallenge.model.User
 import com.hyunki.geniusplazacodingchallenge.network.UserService
@@ -26,6 +30,15 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     private val userRepository = UserRepositoryImpl(UserService.getInstance()!!)
     private val databaseRepository = UserDatabaseRepositoryImpl(application.applicationContext)
 
+    private val userDataSource = UserDataSource(userRepository)
+    private val databaseDataSource = DatabaseDataSource(databaseRepository)
+
+    init{
+        getUsersFromNetwork()
+    }
+
+    fun getLiveData(): LiveData<PagedList<User>> = liveData
+
     fun addUserToDatabase(user: User) {
         databaseRepository.addUserToDatabase(user)
     }
@@ -35,9 +48,51 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun getUsersFromDatabase() {
-    }
-    fun getUsersFromNetwork() {
+        val config = PagedList.Config.Builder()
+            .setPageSize(100)
+            .setEnablePlaceholders(false)
+            .setPrefetchDistance(6)
+            .build()
 
+        val dataSource: Flowable<PagedList<User>> =
+            RxPagedListBuilder(
+                DatabaseSourceFactory(databaseDataSource),
+                config
+            ).buildFlowable(BackpressureStrategy.BUFFER)
+
+        disposables.add(dataSource
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeBy(
+                onError = { throwable -> Log.d("error", throwable.toString()) },
+                onNext = { pagedList -> liveData.value = pagedList }
+            ))
+    }
+
+    private fun getUsersFromNetwork() {
+        val config = PagedList.Config.Builder()
+            .setPageSize(6)
+            .setPrefetchDistance(12)
+            .setEnablePlaceholders(false)
+            .build()
+
+        val dataSource: Flowable<PagedList<User>> =
+            RxPagedListBuilder(
+                UserDataSourceFactory(userDataSource),
+                config
+            ).buildFlowable(BackpressureStrategy.BUFFER)
+
+        disposables.add(dataSource
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeBy(
+                onError = {t -> Log.d("error", t.toString())},
+                onNext = {
+                        pagedList ->
+                    getLiveData().value?.dataSource?.invalidate()
+                    liveData.value = pagedList
+                }
+            )
+        )
     }
 
     fun postUser(user: PostUser) {

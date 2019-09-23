@@ -47,10 +47,6 @@ class AddUserActivity : AppCompatActivity(),View.OnClickListener {
                         onError = {throwable -> Log.d("error add user post", throwable.toString()) },
                         onSuccess = {user -> Log.d("on success post", user.first_name) }
                     )
-
-                    service.getUsers(1).subscribeBy(
-                        onSuccess = {userResponse -> Log.d("on success get", userResponse.data[0].first_name) }
-                    )
                     setIntent()
                 }
         }
