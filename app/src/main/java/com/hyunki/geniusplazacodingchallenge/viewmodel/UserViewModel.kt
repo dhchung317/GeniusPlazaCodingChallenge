@@ -61,9 +61,10 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
             ).buildFlowable(BackpressureStrategy.BUFFER)
 
         disposables.add(dataSource
+            .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
-                onError = { throwable -> Log.d("error", throwable.toString()) },
+                onError = { t -> Log.d("database error", t.toString()) },
                 onNext = { pagedList -> liveData.value = pagedList }
             ))
     }
@@ -71,7 +72,6 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     private fun getUsersFromNetwork() {
         val config = PagedList.Config.Builder()
             .setPageSize(6)
-            .setPrefetchDistance(12)
             .setEnablePlaceholders(false)
             .build()
 
@@ -85,11 +85,9 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
-                onError = {t -> Log.d("error", t.toString())},
+                onError = {t -> Log.d("network error", t.toString())},
                 onNext = {
-                        pagedList ->
-                    getLiveData().value?.dataSource?.invalidate()
-                    liveData.value = pagedList
+                        pagedList -> liveData.value = pagedList
                 }
             )
         )
@@ -114,5 +112,10 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
                 }
             )
         )
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        disposables.clear()
     }
 }

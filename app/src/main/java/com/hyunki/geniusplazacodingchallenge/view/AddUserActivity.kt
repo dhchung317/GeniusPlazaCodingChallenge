@@ -4,17 +4,16 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import com.hyunki.geniusplazacodingchallenge.R
 import com.hyunki.geniusplazacodingchallenge.databinding.ActivityAddUserBinding
+import com.hyunki.geniusplazacodingchallenge.model.PostUser
 import com.hyunki.geniusplazacodingchallenge.network.UserService
 import com.hyunki.geniusplazacodingchallenge.viewmodel.UserViewModel
-import io.reactivex.rxkotlin.subscribeBy
 
-class AddUserActivity : AppCompatActivity(),View.OnClickListener {
+class AddUserActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityAddUserBinding
     private lateinit var service: UserService
     private lateinit var viewModel: UserViewModel
@@ -30,29 +29,29 @@ class AddUserActivity : AppCompatActivity(),View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        when(v?.id){
+        when (v?.id) {
             R.id.add_user_button ->
-                if(
+                if (
                     binding.addUserFirstNameEditText.text.isEmpty()
                     || binding.addUserLastNameEditText.text.isEmpty()
                     || binding.addUserEmailEditText.text.isEmpty()
-                ){
-                    Toast.makeText(this,"fields cannot be empty", Toast.LENGTH_SHORT).show()
-                }else {
-                    service.postUser(
+                ) {
+                    Toast.makeText(applicationContext, "fields cannot be empty", Toast.LENGTH_SHORT).show()
+                } else {
+                    viewModel.postUser(
+                        PostUser(
                             binding.addUserFirstNameEditText.text.toString(),
                             binding.addUserLastNameEditText.text.toString(),
                             binding.addUserEmailEditText.text.toString()
-                    ).subscribeBy(
-                        onError = {throwable -> Log.d("error add user post", throwable.toString()) },
-                        onSuccess = {user -> Log.d("on success post", user.first_name) }
+                        )
                     )
+                    Toast.makeText(applicationContext, "user added", Toast.LENGTH_SHORT).show()
                     setIntent()
                 }
         }
     }
 
-    private fun setIntent(){
+    private fun setIntent() {
         val intent = Intent()
         setResult(Activity.RESULT_OK, intent)
     }

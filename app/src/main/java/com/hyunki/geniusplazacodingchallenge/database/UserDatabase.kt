@@ -19,19 +19,6 @@ class UserDatabase(context: Context) {
         )
     }
 
-    companion object Factory {
-        @Volatile
-        private var userDatabase: UserDatabase? = null
-
-        @Synchronized
-        fun getInstance(context: Context): UserDatabase? {
-            userDatabase ?: synchronized(this) {
-                userDatabase = UserDatabase(context)
-            }
-            return userDatabase
-        }
-    }
-
     fun addUser(user:User){
         database.userQueries.insertOrReplaceUser(
             user.id.toLong(),
@@ -66,5 +53,18 @@ class UserDatabase(context: Context) {
             last_name = userQuery.last_name,
             email = userQuery.email,
             avatar = userQuery.avatar)
+    }
+
+    companion object Factory {
+        @Volatile
+        private var userDatabase: UserDatabase? = null
+
+        @Synchronized
+        fun getInstance(context: Context): UserDatabase? {
+            userDatabase ?: synchronized(this) {
+                userDatabase = UserDatabase(context)
+            }
+            return userDatabase
+        }
     }
 }
