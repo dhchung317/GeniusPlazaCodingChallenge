@@ -1,4 +1,4 @@
-package com.hyunki.geniusplazacodingchallenge.network
+package com.hyunki.geniusplazacodingchallenge.model
 
 import android.os.Parcelable
 import com.hyunki.geniusplazacodingchallenge.model.User

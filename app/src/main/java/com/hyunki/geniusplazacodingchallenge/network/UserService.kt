@@ -1,6 +1,7 @@
 package com.hyunki.geniusplazacodingchallenge.network
 
 import com.hyunki.geniusplazacodingchallenge.model.User
+import com.hyunki.geniusplazacodingchallenge.model.UserResponse
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import retrofit2.Retrofit
