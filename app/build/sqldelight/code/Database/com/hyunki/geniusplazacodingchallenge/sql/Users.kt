@@ -4,8 +4,6 @@ import kotlin.Long
 import kotlin.String
 
 interface Users {
-  val _id: Long
-
   val userId: Long
 
   val first_name: String
@@ -17,7 +15,6 @@ interface Users {
   val avatar: String?
 
   data class Impl(
-    override val _id: Long,
     override val userId: Long,
     override val first_name: String,
     override val last_name: String,
@@ -26,7 +23,6 @@ interface Users {
   ) : Users {
     override fun toString(): String = """
     |Users.Impl [
-    |  _id: $_id
     |  userId: $userId
     |  first_name: $first_name
     |  last_name: $last_name

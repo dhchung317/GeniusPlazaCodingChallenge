@@ -1041,6 +1041,8 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable ic_add
+drawable ic_add_dark
+drawable ic_add_green
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mtrl_chip_checked_black
@@ -1140,6 +1142,7 @@ id beginning
 id blocking
 id bottom
 id buttonPanel
+id button_textView
 id center
 id center_horizontal
 id center_vertical

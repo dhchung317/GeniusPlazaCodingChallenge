@@ -4,8 +4,8 @@ package com.hyunki.geniusplazacodingchallenge.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -22,7 +22,7 @@ public final class ActivityAddUserBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button addUserButton;
+  public final ImageButton addUserButton;
 
   @NonNull
   public final EditText addUserEmailEditText;
@@ -46,13 +46,17 @@ public final class ActivityAddUserBinding implements ViewBinding {
   public final TextView addUserLastNameTextView;
 
   @NonNull
+  public final TextView buttonTextView;
+
+  @NonNull
   public final TextView textView;
 
-  private ActivityAddUserBinding(@NonNull ConstraintLayout rootView, @NonNull Button addUserButton,
-      @NonNull EditText addUserEmailEditText, @NonNull TextView addUserEmailTextView,
-      @NonNull EditText addUserFirstNameEditText, @NonNull TextView addUserFirstNameTextView,
-      @NonNull ImageView addUserImageView, @NonNull EditText addUserLastNameEditText,
-      @NonNull TextView addUserLastNameTextView, @NonNull TextView textView) {
+  private ActivityAddUserBinding(@NonNull ConstraintLayout rootView,
+      @NonNull ImageButton addUserButton, @NonNull EditText addUserEmailEditText,
+      @NonNull TextView addUserEmailTextView, @NonNull EditText addUserFirstNameEditText,
+      @NonNull TextView addUserFirstNameTextView, @NonNull ImageView addUserImageView,
+      @NonNull EditText addUserLastNameEditText, @NonNull TextView addUserLastNameTextView,
+      @NonNull TextView buttonTextView, @NonNull TextView textView) {
     this.rootView = rootView;
     this.addUserButton = addUserButton;
     this.addUserEmailEditText = addUserEmailEditText;
@@ -62,6 +66,7 @@ public final class ActivityAddUserBinding implements ViewBinding {
     this.addUserImageView = addUserImageView;
     this.addUserLastNameEditText = addUserLastNameEditText;
     this.addUserLastNameTextView = addUserLastNameTextView;
+    this.buttonTextView = buttonTextView;
     this.textView = textView;
   }
 
@@ -92,7 +97,7 @@ public final class ActivityAddUserBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     String missingId;
     missingId: {
-      Button addUserButton = rootView.findViewById(R.id.add_user_button);
+      ImageButton addUserButton = rootView.findViewById(R.id.add_user_button);
       if (addUserButton == null) {
         missingId = "addUserButton";
         break missingId;
@@ -132,6 +137,11 @@ public final class ActivityAddUserBinding implements ViewBinding {
         missingId = "addUserLastNameTextView";
         break missingId;
       }
+      TextView buttonTextView = rootView.findViewById(R.id.button_textView);
+      if (buttonTextView == null) {
+        missingId = "buttonTextView";
+        break missingId;
+      }
       TextView textView = rootView.findViewById(R.id.textView);
       if (textView == null) {
         missingId = "textView";
@@ -140,7 +150,7 @@ public final class ActivityAddUserBinding implements ViewBinding {
       return new ActivityAddUserBinding((ConstraintLayout) rootView, addUserButton,
           addUserEmailEditText, addUserEmailTextView, addUserFirstNameEditText,
           addUserFirstNameTextView, addUserImageView, addUserLastNameEditText,
-          addUserLastNameTextView, textView);
+          addUserLastNameTextView, buttonTextView, textView);
     }
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }

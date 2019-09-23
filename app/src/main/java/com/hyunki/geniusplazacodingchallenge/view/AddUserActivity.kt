@@ -45,8 +45,8 @@ class AddUserActivity : AppCompatActivity(), View.OnClickListener {
                             binding.addUserEmailEditText.text.toString()
                         )
                     )
-                    Toast.makeText(applicationContext, "user added", Toast.LENGTH_SHORT).show()
                     setIntent()
+                    Toast.makeText(applicationContext, "user added", Toast.LENGTH_SHORT).show()
                 }
         }
     }
