@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.hyunki.geniusplazacodingchallenge.Database
 import com.hyunki.geniusplazacodingchallenge.model.User
+import com.hyunki.geniusplazacodingchallenge.util.AutoIncrementUtil
 import com.squareup.sqldelight.android.AndroidSqliteDriver
 
 class UserDatabase(context: Context) {
@@ -21,6 +22,7 @@ class UserDatabase(context: Context) {
 
     fun addUser(user:User){
         database.userQueries.insertOrReplaceUser(
+            AutoIncrementUtil.getAutoIncrement().toLong(),
             user.id.toLong(),
             user.first_name,
             user.last_name,

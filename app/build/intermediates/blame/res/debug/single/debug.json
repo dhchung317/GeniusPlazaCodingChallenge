@@ -64,12 +64,12 @@
         "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/drawable-mdpi/ic_add_dark.png"
     },
     {
-        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
-        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/layout/activity_main.xml"
-    },
-    {
         "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_add_green.png.flat",
         "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/drawable-xxhdpi/ic_add_green.png"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/layout/activity_main.xml"
     },
     {
         "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
@@ -96,12 +96,12 @@
         "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/drawable-xxhdpi/ic_add.png"
     },
     {
-        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
-    },
-    {
         "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_add_dark.png.flat",
         "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/drawable-xhdpi/ic_add_dark.png"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     },
     {
         "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
