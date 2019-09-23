@@ -30,44 +30,45 @@
 20-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:11:9-54
 21        android:supportsRtl="true"
 21-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:12:9-35
-22        android:theme="@style/AppTheme" >
-22-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:13:9-40
-23        <activity android:name="com.hyunki.geniusplazacodingchallenge.view.MainActivity" >
-23-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:14:9-20:20
-23-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:14:19-52
-24            <intent-filter>
-24-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:15:13-19:29
-25                <action android:name="android.intent.action.MAIN" />
-25-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:16:17-69
-25-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:16:25-66
-26
-27                <category android:name="android.intent.category.LAUNCHER" />
-27-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:18:17-77
-27-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:18:27-74
-28            </intent-filter>
-29        </activity>
-30        <activity android:name="com.hyunki.geniusplazacodingchallenge.view.AddUserActivity" />
-30-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:21:9-67
-30-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:21:19-55
-31
-32        <provider
-32-->[com.squareup.picasso:picasso:2.71828] /Users/hyunki/.gradle/caches/transforms-2/files-2.1/1726560d972df3d5eb7e4ae6d92b5006/jetified-picasso-2.71828/AndroidManifest.xml:8:9-11:40
-33            android:name="com.squareup.picasso.PicassoProvider"
-33-->[com.squareup.picasso:picasso:2.71828] /Users/hyunki/.gradle/caches/transforms-2/files-2.1/1726560d972df3d5eb7e4ae6d92b5006/jetified-picasso-2.71828/AndroidManifest.xml:9:13-64
-34            android:authorities="com.hyunki.geniusplazacodingchallenge.com.squareup.picasso"
-34-->[com.squareup.picasso:picasso:2.71828] /Users/hyunki/.gradle/caches/transforms-2/files-2.1/1726560d972df3d5eb7e4ae6d92b5006/jetified-picasso-2.71828/AndroidManifest.xml:10:13-72
-35            android:exported="false" />
-35-->[com.squareup.picasso:picasso:2.71828] /Users/hyunki/.gradle/caches/transforms-2/files-2.1/1726560d972df3d5eb7e4ae6d92b5006/jetified-picasso-2.71828/AndroidManifest.xml:11:13-37
-36        <provider
-36-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/hyunki/.gradle/caches/transforms-2/files-2.1/e2438cd38253729a3e52f7f55dd6051f/lifecycle-process-2.1.0/AndroidManifest.xml:23:9-27:43
-37            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-37-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/hyunki/.gradle/caches/transforms-2/files-2.1/e2438cd38253729a3e52f7f55dd6051f/lifecycle-process-2.1.0/AndroidManifest.xml:24:13-79
-38            android:authorities="com.hyunki.geniusplazacodingchallenge.lifecycle-process"
-38-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/hyunki/.gradle/caches/transforms-2/files-2.1/e2438cd38253729a3e52f7f55dd6051f/lifecycle-process-2.1.0/AndroidManifest.xml:25:13-69
-39            android:exported="false"
-39-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/hyunki/.gradle/caches/transforms-2/files-2.1/e2438cd38253729a3e52f7f55dd6051f/lifecycle-process-2.1.0/AndroidManifest.xml:26:13-37
-40            android:multiprocess="true" />
-40-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/hyunki/.gradle/caches/transforms-2/files-2.1/e2438cd38253729a3e52f7f55dd6051f/lifecycle-process-2.1.0/AndroidManifest.xml:27:13-40
-41    </application>
-42
-43</manifest>
+22        android:testOnly="true"
+23        android:theme="@style/AppTheme" >
+23-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:13:9-40
+24        <activity android:name="com.hyunki.geniusplazacodingchallenge.view.MainActivity" >
+24-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:14:9-20:20
+24-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:14:19-52
+25            <intent-filter>
+25-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:15:13-19:29
+26                <action android:name="android.intent.action.MAIN" />
+26-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:16:17-69
+26-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:16:25-66
+27
+28                <category android:name="android.intent.category.LAUNCHER" />
+28-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:18:17-77
+28-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:18:27-74
+29            </intent-filter>
+30        </activity>
+31        <activity android:name="com.hyunki.geniusplazacodingchallenge.view.AddUserActivity" />
+31-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:21:9-67
+31-->/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/AndroidManifest.xml:21:19-55
+32
+33        <provider
+33-->[com.squareup.picasso:picasso:2.71828] /Users/hyunki/.gradle/caches/transforms-2/files-2.1/1726560d972df3d5eb7e4ae6d92b5006/jetified-picasso-2.71828/AndroidManifest.xml:8:9-11:40
+34            android:name="com.squareup.picasso.PicassoProvider"
+34-->[com.squareup.picasso:picasso:2.71828] /Users/hyunki/.gradle/caches/transforms-2/files-2.1/1726560d972df3d5eb7e4ae6d92b5006/jetified-picasso-2.71828/AndroidManifest.xml:9:13-64
+35            android:authorities="com.hyunki.geniusplazacodingchallenge.com.squareup.picasso"
+35-->[com.squareup.picasso:picasso:2.71828] /Users/hyunki/.gradle/caches/transforms-2/files-2.1/1726560d972df3d5eb7e4ae6d92b5006/jetified-picasso-2.71828/AndroidManifest.xml:10:13-72
+36            android:exported="false" />
+36-->[com.squareup.picasso:picasso:2.71828] /Users/hyunki/.gradle/caches/transforms-2/files-2.1/1726560d972df3d5eb7e4ae6d92b5006/jetified-picasso-2.71828/AndroidManifest.xml:11:13-37
+37        <provider
+37-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/hyunki/.gradle/caches/transforms-2/files-2.1/e2438cd38253729a3e52f7f55dd6051f/lifecycle-process-2.1.0/AndroidManifest.xml:23:9-27:43
+38            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+38-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/hyunki/.gradle/caches/transforms-2/files-2.1/e2438cd38253729a3e52f7f55dd6051f/lifecycle-process-2.1.0/AndroidManifest.xml:24:13-79
+39            android:authorities="com.hyunki.geniusplazacodingchallenge.lifecycle-process"
+39-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/hyunki/.gradle/caches/transforms-2/files-2.1/e2438cd38253729a3e52f7f55dd6051f/lifecycle-process-2.1.0/AndroidManifest.xml:25:13-69
+40            android:exported="false"
+40-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/hyunki/.gradle/caches/transforms-2/files-2.1/e2438cd38253729a3e52f7f55dd6051f/lifecycle-process-2.1.0/AndroidManifest.xml:26:13-37
+41            android:multiprocess="true" />
+41-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/hyunki/.gradle/caches/transforms-2/files-2.1/e2438cd38253729a3e52f7f55dd6051f/lifecycle-process-2.1.0/AndroidManifest.xml:27:13-40
+42    </application>
+43
+44</manifest>

@@ -69,9 +69,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
             override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
                 super.onItemRangeInserted(positionStart, itemCount)
                 for(u in viewModel.getLiveData().value!!){
-                    if(viewModel.getUserFromDatabaseById(u.id) == null) {
                         viewModel.addUserToDatabase(u)
-                    }
                 }
             }
         }
