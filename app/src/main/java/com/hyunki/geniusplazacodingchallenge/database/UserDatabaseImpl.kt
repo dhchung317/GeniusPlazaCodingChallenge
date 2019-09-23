@@ -7,14 +7,14 @@ class UserDatabaseRepositoryImpl(context: Context) : UserDatabaseRepository {
     private val userDatabase = UserDatabase.getInstance(context)
 
     override fun addUserToDatabase(user: User) {
+        userDatabase?.addUser(user)
     }
 
     override fun getUsersFromDatabase(): List<User> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return userDatabase?.getAllUsers()!!
     }
 
-    override fun getUserFromDatabaseById(id: Int): User? {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun getUserFromDatabaseById(id:Int): User? {
+        return userDatabase?.getUserById(id)
     }
-
 }

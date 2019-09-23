@@ -8,13 +8,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.hyunki.geniusplazacodingchallenge.R
 import com.hyunki.geniusplazacodingchallenge.databinding.UserItemBinding
 import com.hyunki.geniusplazacodingchallenge.model.User
 import com.squareup.picasso.Picasso
 
-class UserAdapter: PagedListAdapter<User, UserAdapter.UserViewHolder>(
-    UserDiffUtilCallBack()
-) {
+class UserAdapter: PagedListAdapter<User, UserAdapter.UserViewHolder>(UserDiffUtilCallBack()) {
     private lateinit var binding: UserItemBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
@@ -25,15 +24,17 @@ class UserAdapter: PagedListAdapter<User, UserAdapter.UserViewHolder>(
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         getItem(position)?.let(holder::onBind)
     }
-    inner class UserViewHolder(view: View): RecyclerView.ViewHolder(view){
+    inner class UserViewHolder(view: View):RecyclerView.ViewHolder(view){
         private val image: ImageView = binding.userImageView
-        private val email: TextView = binding.userEmailTextView
-        private val name: TextView = binding.userNameTextView
+        private val email:TextView = binding.userEmailTextView
+        private val name:TextView = binding.userNameTextView
 
-        fun onBind(user: User){
+        fun onBind(user:User){
             Log.d("name rv",user.first_name)
             if(user.avatar != null) {
                 Picasso.get().load(user.avatar).into(image)
+            }else{
+                image.setImageResource(R.drawable.default_profile)
             }
             email.text = user.email
             name.text = "${user.first_name} ${user.last_name}"
