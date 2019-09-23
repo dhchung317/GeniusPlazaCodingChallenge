@@ -1,0 +1,90 @@
+[
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_add.png.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/drawable-mdpi/ic_add.png"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_add.png.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/drawable-xxhdpi/ic_add.png"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/layout_activity_add_user.xml.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/layout/activity_add_user.xml"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/layout_user_item.xml.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/layout/user_item.xml"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_add.png.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/drawable-hdpi/ic_add.png"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/drawable-anydpi_ic_add.xml.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/drawable-anydpi/ic_add.xml"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_add.png.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/drawable-xhdpi/ic_add.png"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/hyunki/Desktop/GeniusPlazaCodingChallenge/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    }
+]
