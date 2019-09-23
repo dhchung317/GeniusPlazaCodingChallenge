@@ -81,6 +81,4 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
     }
 
 //    TODO loading dialog to show state
-
-
 }
