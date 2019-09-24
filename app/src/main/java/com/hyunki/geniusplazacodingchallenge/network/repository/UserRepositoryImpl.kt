@@ -1,4 +1,4 @@
-package com.hyunki.geniusplazacodingchallenge.repository
+package com.hyunki.geniusplazacodingchallenge.network.repository
 
 import com.hyunki.geniusplazacodingchallenge.model.PostUser
 import com.hyunki.geniusplazacodingchallenge.model.User

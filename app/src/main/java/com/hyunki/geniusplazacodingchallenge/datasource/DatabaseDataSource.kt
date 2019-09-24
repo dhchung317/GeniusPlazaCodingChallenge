@@ -1,7 +1,7 @@
 package com.hyunki.geniusplazacodingchallenge.datasource
 
 import androidx.paging.PageKeyedDataSource
-import com.hyunki.geniusplazacodingchallenge.database.UserDatabaseRepository
+import com.hyunki.geniusplazacodingchallenge.database.repository.UserDatabaseRepository
 import com.hyunki.geniusplazacodingchallenge.model.User
 
 class DatabaseDataSource(private val userDatabaseRepository: UserDatabaseRepository) :

@@ -31,22 +31,28 @@ class AddUserActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.add_user_button ->
-                if (
-                    binding.addUserFirstNameEditText.text.isEmpty()
+                if (binding.addUserFirstNameEditText.text.isEmpty()
                     || binding.addUserLastNameEditText.text.isEmpty()
-                    || binding.addUserEmailEditText.text.isEmpty()
-                ) {
-                    Toast.makeText(applicationContext, "fields cannot be empty", Toast.LENGTH_SHORT).show()
+                    || binding.addUserEmailEditText.text.isEmpty()) {
+                    Toast.makeText(applicationContext, "fields cannot be empty", Toast.LENGTH_SHORT)
+                        .show()
                 } else {
-                    viewModel.postUser(
-                        PostUser(
-                            binding.addUserFirstNameEditText.text.toString(),
-                            binding.addUserLastNameEditText.text.toString(),
-                            binding.addUserEmailEditText.text.toString()
+                    val emailSet = viewModel.getEmailsFromDatabase()
+                    if (emailSet!!.contains(
+                            binding.addUserEmailEditText.text.toString())) {
+                        Toast.makeText(applicationContext, "email exists!", Toast.LENGTH_SHORT)
+                            .show()
+                    } else {
+                        viewModel.postUser(
+                            PostUser(
+                                binding.addUserFirstNameEditText.text.toString(),
+                                binding.addUserLastNameEditText.text.toString(),
+                                binding.addUserEmailEditText.text.toString()
+                            )
                         )
-                    )
-                    setIntent()
-                    Toast.makeText(applicationContext, "user added", Toast.LENGTH_SHORT).show()
+                        setIntent()
+                        Toast.makeText(applicationContext, "user added", Toast.LENGTH_SHORT).show()
+                    }
                 }
         }
     }

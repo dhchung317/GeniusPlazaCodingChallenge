@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PagedList
 import androidx.paging.RxPagedListBuilder
-import com.hyunki.geniusplazacodingchallenge.database.UserDatabaseRepositoryImpl
+import com.hyunki.geniusplazacodingchallenge.database.repository.UserDatabaseRepositoryImpl
 import com.hyunki.geniusplazacodingchallenge.datasource.DatabaseDataSource
 import com.hyunki.geniusplazacodingchallenge.datasource.DatabaseSourceFactory
 import com.hyunki.geniusplazacodingchallenge.datasource.UserDataSource
@@ -15,7 +15,7 @@ import com.hyunki.geniusplazacodingchallenge.datasource.UserDataSourceFactory
 import com.hyunki.geniusplazacodingchallenge.model.PostUser
 import com.hyunki.geniusplazacodingchallenge.model.User
 import com.hyunki.geniusplazacodingchallenge.network.UserService
-import com.hyunki.geniusplazacodingchallenge.repository.UserRepositoryImpl
+import com.hyunki.geniusplazacodingchallenge.network.repository.UserRepositoryImpl
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -28,7 +28,10 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     private val liveData = MutableLiveData<PagedList<User>>()
 
     private val userRepository = UserRepositoryImpl(UserService.getInstance()!!)
-    private val databaseRepository = UserDatabaseRepositoryImpl(application.applicationContext)
+    private val databaseRepository =
+        UserDatabaseRepositoryImpl(
+            application.applicationContext
+        )
 
     private val userDataSource = UserDataSource(userRepository)
     private val databaseDataSource = DatabaseDataSource(databaseRepository)
@@ -40,13 +43,9 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     fun getLiveData(): LiveData<PagedList<User>> = liveData
 
     fun addUserToDatabase(user: User) {
-        if(databaseRepository.getUsersFromDatabase().isNotEmpty()){
             if(!databaseRepository.checkUserExists(user.id)){
                 databaseRepository.addUserToDatabase(user)
             }
-        }else {
-            databaseRepository.addUserToDatabase(user)
-        }
     }
 
     fun getUserFromDatabaseById(id: Int): User? {
@@ -73,6 +72,10 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
                 onError = { t -> Log.d("database error", t.toString()) },
                 onNext = { pagedList -> liveData.value = pagedList }
             ))
+    }
+
+    fun getEmailsFromDatabase(): MutableSet<String?>? {
+        return databaseRepository.getEmails()
     }
 
     fun clearDatabase(){

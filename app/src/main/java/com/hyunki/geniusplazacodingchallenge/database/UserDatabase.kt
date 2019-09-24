@@ -4,8 +4,8 @@ import android.content.Context
 import android.util.Log
 import com.hyunki.geniusplazacodingchallenge.Database
 import com.hyunki.geniusplazacodingchallenge.model.User
+import com.hyunki.geniusplazacodingchallenge.sql.SelectEmails
 import com.hyunki.geniusplazacodingchallenge.util.AutoIncrementUtil
-import com.squareup.sqldelight.Query
 import com.squareup.sqldelight.android.AndroidSqliteDriver
 
 class UserDatabase(context: Context) {
@@ -36,7 +36,6 @@ class UserDatabase(context: Context) {
     fun getAllUsers(): List<User>{
         val users = database.userQueries.selectAllUsers()
         val userList : ArrayList<User> = ArrayList()
-
         for(u in users.executeAsList()){
             Log.d("database get all", "${u.first_name} ${u.userId}")
             userList.add(User(
@@ -57,6 +56,15 @@ class UserDatabase(context: Context) {
             last_name = userQuery.last_name,
             email = userQuery.email,
             avatar = userQuery.avatar)
+    }
+
+    fun getEmails(): MutableSet<String?> {
+        return database.userQueries.selectEmails().executeAsList().map {
+                selectEmails -> selectEmails.email }.toMutableSet()
+    }
+
+    fun databaseSize():Int{
+        return database.userQueries.selectAllUsers().executeAsList().size
     }
 
     fun checkUserExists(userId:Long): Boolean {
