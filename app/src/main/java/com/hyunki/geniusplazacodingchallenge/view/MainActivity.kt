@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -24,16 +25,15 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initializeList()
-
         dataObserver = getDataObserver()
         adapter.registerAdapterDataObserver(dataObserver)
         viewModel.getLiveData().observe(this,Observer{
-                list -> adapter.submitList(list)
+                pagedList -> adapter.submitList(pagedList)
+            dismissProgress()
             dataObserver.onItemRangeInserted(0,6)
         })
 
@@ -45,7 +45,8 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         if(resultCode == Activity.RESULT_OK){
             viewModel.getUsersFromDatabase()
             viewModel.getLiveData().observe(this, Observer{
-                    list->adapter.submitList(list)
+                    pagedList->adapter.submitList(pagedList)
+                list.scrollToPosition(viewModel.getLiveData().value!!.size - 1)
             })
         }
     }
@@ -60,7 +61,8 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         binding.userRecyclerView.layoutManager =
             LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
         list = binding.userRecyclerView
-        list.layoutManager = LinearLayoutManager(this)
+        val manager = LinearLayoutManager(this)
+        list.layoutManager = manager
         list.adapter = adapter
     }
 
@@ -75,10 +77,16 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         }
     }
 
+    fun showProgress(){
+        binding.userProgressBar.visibility = View.VISIBLE
+    }
+
+    fun dismissProgress(){
+        binding.userProgressBar.visibility = View.INVISIBLE
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         viewModel.clearDatabase()
     }
-
-//    TODO loading dialog to show state
 }
