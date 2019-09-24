@@ -22,7 +22,8 @@ class UserDatabase(context: Context) {
 
     fun addUser(user:User){
         database.userQueries.insertOrReplaceUser(
-            AutoIncrementUtil.getAutoIncrement().toLong(),
+            AutoIncrementUtil.getAutoIncrement(
+                database.userQueries.selectAllUsers().executeAsList().size).toLong(),
             user.id.toLong(),
             user.first_name,
             user.last_name,

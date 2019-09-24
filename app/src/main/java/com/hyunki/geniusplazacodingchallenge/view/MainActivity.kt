@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hyunki.geniusplazacodingchallenge.R
 import com.hyunki.geniusplazacodingchallenge.databinding.ActivityMainBinding
+import com.hyunki.geniusplazacodingchallenge.util.AutoIncrementUtil
 import com.hyunki.geniusplazacodingchallenge.view.rv.UserAdapter
 import com.hyunki.geniusplazacodingchallenge.viewmodel.UserViewModel
 
@@ -46,7 +47,10 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
             viewModel.getUsersFromDatabase()
             viewModel.getLiveData().observe(this, Observer{
                     pagedList->adapter.submitList(pagedList)
-                list.scrollToPosition(viewModel.getLiveData().value!!.size - 1)
+
+                list.scrollToPosition(AutoIncrementUtil.getAutoIncrement() - 1)
+
+
             })
         }
     }
@@ -77,11 +81,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         }
     }
 
-    fun showProgress(){
-        binding.userProgressBar.visibility = View.VISIBLE
-    }
-
-    fun dismissProgress(){
+    private fun dismissProgress(){
         binding.userProgressBar.visibility = View.INVISIBLE
     }
 

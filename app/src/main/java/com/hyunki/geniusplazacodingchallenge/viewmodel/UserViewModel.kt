@@ -110,7 +110,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
                         "post-response",
                         "${user.email}, ${user.first_name} ${user.last_name}, ${user.id}"
                     )
-                    databaseRepository.addUserToDatabase(user)
+                    addUserToDatabase(user)
                 }
             )
         )
