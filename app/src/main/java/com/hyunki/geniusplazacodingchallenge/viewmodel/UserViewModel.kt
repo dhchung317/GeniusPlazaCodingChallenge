@@ -40,7 +40,13 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     fun getLiveData(): LiveData<PagedList<User>> = liveData
 
     fun addUserToDatabase(user: User) {
-        databaseRepository.addUserToDatabase(user)
+        if(databaseRepository.getUsersFromDatabase().isNotEmpty()){
+            if(!databaseRepository.checkUserExists(user.id)){
+                databaseRepository.addUserToDatabase(user)
+            }
+        }else {
+            databaseRepository.addUserToDatabase(user)
+        }
     }
 
     fun getUserFromDatabaseById(id: Int): User? {

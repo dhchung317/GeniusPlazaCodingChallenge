@@ -47,10 +47,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
             viewModel.getUsersFromDatabase()
             viewModel.getLiveData().observe(this, Observer{
                     pagedList->adapter.submitList(pagedList)
-
-                list.scrollToPosition(AutoIncrementUtil.getAutoIncrement() - 1)
-
-
+                list.scrollToPosition(AutoIncrementUtil.autoIncrement - 1)
             })
         }
     }

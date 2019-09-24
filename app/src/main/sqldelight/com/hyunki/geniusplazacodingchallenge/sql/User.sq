@@ -26,3 +26,6 @@ SELECT * FROM Users WHERE userId = ?;
 
 deleteAllUsers:
 DELETE FROM Users;
+
+checkExists:
+SELECT EXISTS(SELECT 1 FROM Users WHERE userId = ?);

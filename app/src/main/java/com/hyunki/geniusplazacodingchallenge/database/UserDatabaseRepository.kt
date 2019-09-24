@@ -6,5 +6,6 @@ interface UserDatabaseRepository {
     fun addUserToDatabase(user: User)
     fun getUsersFromDatabase():List<User>
     fun getUserFromDatabaseById(id : Int):User?
+    fun checkUserExists(userId: Int):Boolean
     fun clearDatabase()
 }

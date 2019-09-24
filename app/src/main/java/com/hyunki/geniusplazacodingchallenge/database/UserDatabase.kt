@@ -5,6 +5,7 @@ import android.util.Log
 import com.hyunki.geniusplazacodingchallenge.Database
 import com.hyunki.geniusplazacodingchallenge.model.User
 import com.hyunki.geniusplazacodingchallenge.util.AutoIncrementUtil
+import com.squareup.sqldelight.Query
 import com.squareup.sqldelight.android.AndroidSqliteDriver
 
 class UserDatabase(context: Context) {
@@ -21,9 +22,9 @@ class UserDatabase(context: Context) {
     }
 
     fun addUser(user:User){
+        val entryId = database.userQueries.selectAllUsers().executeAsList().size
         database.userQueries.insertOrReplaceUser(
-            AutoIncrementUtil.getAutoIncrement(
-                database.userQueries.selectAllUsers().executeAsList().size).toLong(),
+            AutoIncrementUtil.getAutoIncrement(entryId).toLong(),
             user.id.toLong(),
             user.first_name,
             user.last_name,
@@ -56,6 +57,10 @@ class UserDatabase(context: Context) {
             last_name = userQuery.last_name,
             email = userQuery.email,
             avatar = userQuery.avatar)
+    }
+
+    fun checkUserExists(userId:Long): Boolean {
+        return database.userQueries.checkExists(userId).executeAsOne()
     }
 
     fun clearDatabase(){
