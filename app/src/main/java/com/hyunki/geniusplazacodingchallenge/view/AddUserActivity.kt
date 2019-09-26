@@ -4,10 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.hyunki.geniusplazacodingchallenge.R
 import com.hyunki.geniusplazacodingchallenge.databinding.ActivityAddUserBinding
@@ -47,10 +45,10 @@ class AddUserActivity : AppCompatActivity(), View.OnClickListener {
 
                     binding.addUserProgressBar.visibility = View.VISIBLE
                         if (viewModel.getLiveEmailSet().value?.contains(
-                                binding.addUserEmailEditText.text.toString())!!
-                        ) {
-                            Toast.makeText(applicationContext, "email exists!", Toast.LENGTH_SHORT)
-                                .show()
+                                binding.addUserEmailEditText.text.toString())!!) {
+                            Toast.makeText(applicationContext, "email exists!", Toast.LENGTH_SHORT).show()
+                            dismissProgressBar()
+                            enableButton()
                         } else {
                             viewModel.postUser(
                                 PostUser(
@@ -58,17 +56,20 @@ class AddUserActivity : AppCompatActivity(), View.OnClickListener {
                                     binding.addUserLastNameEditText.text.toString(),
                                     binding.addUserEmailEditText.text.toString()))
                             setIntent()
-                            Toast.makeText(applicationContext, "user added", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(applicationContext, "adding user...", Toast.LENGTH_LONG).show()
+                            Timer("click enabler delay",false).schedule(5000) {
+                                runOnUiThread {
+                                    dismissProgressBar()
+                                    enableButton()
+                                    Toast.makeText(applicationContext, "user successfully added!", Toast.LENGTH_SHORT).show()
+                                }
                         }
+
+                    }
 
                 }
 
-                    Timer("click enabler delay",false).schedule(5000) {
-                        runOnUiThread {
-                            dismissProgressBar()
-                            enableButton()
-                        }
-                    }
+
 
             }
         }

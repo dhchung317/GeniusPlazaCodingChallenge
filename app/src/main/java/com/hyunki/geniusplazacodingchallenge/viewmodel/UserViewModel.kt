@@ -1,7 +1,6 @@
 package com.hyunki.geniusplazacodingchallenge.viewmodel
 
 import android.app.Application
-import android.text.format.Time
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
