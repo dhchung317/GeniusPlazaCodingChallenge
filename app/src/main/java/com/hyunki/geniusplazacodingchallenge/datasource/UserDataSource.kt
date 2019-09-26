@@ -2,7 +2,7 @@ package com.hyunki.geniusplazacodingchallenge.datasource
 
 import androidx.paging.PageKeyedDataSource
 import com.hyunki.geniusplazacodingchallenge.model.User
-import com.hyunki.geniusplazacodingchallenge.repository.UserRepository
+import com.hyunki.geniusplazacodingchallenge.network.repository.UserRepository
 
 class UserDataSource(private val userRepository: UserRepository) :
     PageKeyedDataSource<Int, User>() {

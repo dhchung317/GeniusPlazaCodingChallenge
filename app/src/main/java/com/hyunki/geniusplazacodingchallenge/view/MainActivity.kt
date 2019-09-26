@@ -3,7 +3,9 @@ package com.hyunki.geniusplazacodingchallenge.view
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hyunki.geniusplazacodingchallenge.R
 import com.hyunki.geniusplazacodingchallenge.databinding.ActivityMainBinding
+import com.hyunki.geniusplazacodingchallenge.util.AutoIncrementUtil
 import com.hyunki.geniusplazacodingchallenge.view.rv.UserAdapter
 import com.hyunki.geniusplazacodingchallenge.viewmodel.UserViewModel
 
@@ -24,16 +27,15 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initializeList()
-
         dataObserver = getDataObserver()
         adapter.registerAdapterDataObserver(dataObserver)
         viewModel.getLiveData().observe(this,Observer{
-                list -> adapter.submitList(list)
+                pagedList -> adapter.submitList(pagedList)
+            dismissProgress()
             dataObserver.onItemRangeInserted(0,6)
         })
 
@@ -45,7 +47,8 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         if(resultCode == Activity.RESULT_OK){
             viewModel.getUsersFromDatabase()
             viewModel.getLiveData().observe(this, Observer{
-                    list->adapter.submitList(list)
+                    pagedList->adapter.submitList(pagedList)
+                list.scrollToPosition(AutoIncrementUtil.autoIncrement - 1)
             })
         }
     }
@@ -60,7 +63,8 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         binding.userRecyclerView.layoutManager =
             LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
         list = binding.userRecyclerView
-        list.layoutManager = LinearLayoutManager(this)
+        val manager = LinearLayoutManager(this)
+        list.layoutManager = manager
         list.adapter = adapter
     }
 
@@ -75,10 +79,12 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         }
     }
 
+    private fun dismissProgress(){
+        binding.userProgressBar.visibility = View.INVISIBLE
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         viewModel.clearDatabase()
     }
-
-//    TODO loading dialog to show state
 }

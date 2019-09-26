@@ -1,5 +1,5 @@
 CREATE TABLE Users (
-    _id INTEGER PRIMARY KEY NOT NULL,
+    _id INTEGER UNIQUE PRIMARY KEY NOT NULL,
     userId INTEGER UNIQUE NOT NULL,
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
@@ -26,3 +26,9 @@ SELECT * FROM Users WHERE userId = ?;
 
 deleteAllUsers:
 DELETE FROM Users;
+
+checkExists:
+SELECT EXISTS(SELECT 1 FROM Users WHERE userId = ?);
+
+selectEmails:
+SELECT email FROM Users;
