@@ -33,16 +33,14 @@ class AddUserActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.add_user_button -> {
-                binding.addUserButton.isClickable = false
-                binding.addUserButton.isEnabled = false
-
                 if (binding.addUserFirstNameEditText.text.isEmpty()
                     || binding.addUserLastNameEditText.text.isEmpty()
                     || binding.addUserEmailEditText.text.isEmpty()) {
                     Toast.makeText(applicationContext, "fields cannot be empty", Toast.LENGTH_SHORT).show()
 
                 } else {
-
+                    binding.addUserButton.isClickable = false
+                    binding.addUserButton.isEnabled = false
                     binding.addUserProgressBar.visibility = View.VISIBLE
                         if (viewModel.getLiveEmailSet().value?.contains(
                                 binding.addUserEmailEditText.text.toString())!!) {
