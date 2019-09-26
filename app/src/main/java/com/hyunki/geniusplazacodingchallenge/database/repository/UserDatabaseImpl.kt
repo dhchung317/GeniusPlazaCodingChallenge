@@ -3,6 +3,7 @@ package com.hyunki.geniusplazacodingchallenge.database.repository
 import android.content.Context
 import com.hyunki.geniusplazacodingchallenge.database.UserDatabase
 import com.hyunki.geniusplazacodingchallenge.model.User
+import io.reactivex.Single
 
 class UserDatabaseRepositoryImpl(context: Context) :
     UserDatabaseRepository {
@@ -21,8 +22,8 @@ class UserDatabaseRepositoryImpl(context: Context) :
         return userDatabase?.getUserById(id)
     }
 
-    override fun getEmails(): MutableSet<String?>? {
-        return userDatabase?.getEmails()
+    override fun getEmails(): Single<MutableSet<String?>> {
+        return userDatabase?.getEmails()!!
     }
 
     override fun databaseSize(): Int {
